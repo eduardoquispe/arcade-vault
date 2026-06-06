@@ -31,6 +31,12 @@ Always use `/frontend-design` for UI design.
 | `/spec-impl` | `.claude/skills/spec-impl` (from `Klerith/fernando-skills`) | Implement an approved spec step-by-step |
 | `/add-game`  | `.claude/skills/add-game` (local)                           | Generate a spec for a new canvas game   |
 
+## Agents
+
+| Agente         | Archivo                          | Propósito                                                                               |
+| -------------- | -------------------------------- | --------------------------------------------------------------------------------------- |
+| `game-planner` | `.claude/agents/game-planner.md` | Decide qué juego añadir; persiste sugerencias en `references/game-suggestions-todos.md` |
+
 ## Hooks
 
 `PostToolUse` on Write/Edit/MultiEdit → `.claude/hooks/format-and-lint.sh` — runs Prettier then ESLint --fix on the saved file automatically.
@@ -51,16 +57,16 @@ Uses Next.js **App Router** exclusively — no `pages/` directory.
 
 ### Routes implemented
 
-| Route               | File                           | Notes                             |
-| ------------------- | ------------------------------ | --------------------------------- |
-| `/`                 | `app/page.tsx`                 | Landing                           |
-| `/about`            | `app/about/page.tsx`           | About + contact form              |
-| `/auth`             | `app/auth/page.tsx`            | Auth page                         |
-| `/games`            | `app/games/page.tsx`           | Game grid (dynamic from Supabase) |
-| `/games/[id]`       | `app/games/[id]/page.tsx`      | Game detail                       |
-| `/games/[id]/play`  | `app/games/[id]/play/page.tsx` | Play wrapper                      |
-| `/hall-of-fame`     | `app/hall-of-fame/page.tsx`    | Global leaderboard tabs           |
-| `POST /api/contact` | `app/api/contact/route.ts`     | Resend email handler              |
+| Route               | File                           | Notes                                                                        |
+| ------------------- | ------------------------------ | ---------------------------------------------------------------------------- |
+| `/`                 | `app/page.tsx`                 | Landing                                                                      |
+| `/about`            | `app/about/page.tsx`           | About + contact form                                                         |
+| `/auth`             | `app/auth/page.tsx`            | Auth page                                                                    |
+| `/games`            | `app/games/page.tsx`           | Game grid (dynamic from Supabase) — (see `@references/implemented-games.md`) |
+| `/games/[id]`       | `app/games/[id]/page.tsx`      | Game detail                                                                  |
+| `/games/[id]/play`  | `app/games/[id]/play/page.tsx` | Play wrapper                                                                 |
+| `/hall-of-fame`     | `app/hall-of-fame/page.tsx`    | Global leaderboard tabs                                                      |
+| `POST /api/contact` | `app/api/contact/route.ts`     | Resend email handler                                                         |
 
 ### Key directories
 
